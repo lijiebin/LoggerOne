@@ -1,2 +1,2 @@
 # LoggerOne
-A Efficient &amp; Simple high performance PHP log library
+One Efficient &amp; Simple high performance PHP log library
