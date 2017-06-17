@@ -6,6 +6,7 @@ use Psr\Log\LogLevel;
 use LoggerOne\Handler\Handler;
 use LoggerOne\Handler\FileHandler;
 use LoggerOne\Formatter\CommonFormatter;
+use LoggerOne\Formatter\Formatter;
 
 class Logger extends AbstractLogger
 {
@@ -16,10 +17,6 @@ class Logger extends AbstractLogger
     private $_handler;
     
     private $_formatter;
-    
-    private $_logFilePath = '';
-    
-    private $_logFileName = '';
     
     public function __construct(Handler $handler = null, $formatter = null)
     {
@@ -36,9 +33,22 @@ class Logger extends AbstractLogger
         }
     }
     
+    public function setHandler(Handler $handler)
+    {
+        $this->_handler = $handler;
+        return $this;
+    }
+    
+    public function setFormatter(Formatter $formatter)
+    {
+        $this->_formatter = $handler;
+        return $this;
+    }
+    
     public function log($level, $message, array $context = [])
     {
         $this->_validLevel($level);
+        $context['level'] = $level;
         $this->_messages[$level][] = $this->_formatter->format($message, $context);
         return $this;
     }
