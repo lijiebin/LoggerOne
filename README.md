@@ -21,11 +21,13 @@ $logger->info($message, $replacements);
 #### Change `FileHandler` default path
 
 ```php
-$logger = new LoggerOne\Logger();
+$logger = LoggerOne\Logger::getInstance(); 
 
 $logFile = './tmp/loggerOne.log'; // Your path where you want
 
 $handler = new LoggerOne\Handler\FileHandler($logFile);
+
+$logger->setHandler($handler);
 
 $logger->info($message);
 ```
