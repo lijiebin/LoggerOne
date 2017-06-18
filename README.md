@@ -8,7 +8,8 @@ Inherently cached message record using PHP object attribute.
 
 ### Invoke by default mode 
 #### Will using `FileHandler` create a log file named for `%Y-%m-%d` and appendix `.log` at `LoggerOne` root folder, ervery message as line with the original
-```
+
+```php
 $logger = LoggerOne\Logger::getInstance();  // Strongly recommend
 
 $message = str_repeat("test log message", 50);
@@ -16,7 +17,8 @@ $message = str_repeat("test log message", 50);
 $logger->info($message);
 ```
 ### Specific Handler & Formatter
-```
+
+```php
 $logger = new LoggerOne\Logger();
 
 $handler = new LoggerOne\Handler\FooHandler();
