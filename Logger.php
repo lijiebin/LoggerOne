@@ -60,7 +60,7 @@ class Logger extends AbstractLogger
     {
         $this->_validLevel($level);
         $context['level'] = $level;
-        $this->_messages[$level][] = $this->_formatter->format($message, $context);
+        $this->_messages[] = $this->_formatter->format($message, $context);
         return $this;
     }
     

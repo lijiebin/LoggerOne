@@ -18,10 +18,8 @@ class FileHandler implements Handler
     
     public function write(array $messages = [])
     {
-        $contents = '';
-        foreach ($messages as $level => $message) {
-            $contents .= implode("\r\n", $message) . "\r\n";
-        }
+        $contents = implode("\r\n", $messages) . "\r\n";
+        
         file_put_contents($this->_logFullName, $contents, FILE_APPEND);
     }
 }
