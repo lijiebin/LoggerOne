@@ -1,8 +1,6 @@
 <?php
 namespace LoggerOne\Handler;
 
-use LoggerOne\LoggerOneException;
-
 class FileHandler implements Handler
 {
     private $_logFullName;

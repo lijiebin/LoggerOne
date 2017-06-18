@@ -22,7 +22,7 @@ class Logger extends AbstractLogger
     
     public function __construct(Handler $handler = null, $formatter = null)
     {
-        $refl = new \ReflectionClass('Psr\log\LogLevel');
+        $refl = new \ReflectionClass('Psr\Log\LogLevel');
         $this->_levels = array_values($refl->getConstants());
         $this->_handler = $handler ? $handler : new FileHandler();
         $this->_formatter = $formatter ? $formatter : new CommonFormatter();
@@ -56,6 +56,18 @@ class Logger extends AbstractLogger
         return $this;
     }
     
+    public function getHandler()
+    {
+        return $this->_handler;
+        return $this;
+    }
+    
+    public function getFormatter()
+    {
+        return $this->_formatter;
+        return $this;
+    }
+    
     public function log($level, $message, array $context = [])
     {
         $this->_validLevel($level);
@@ -76,31 +88,31 @@ class Logger extends AbstractLogger
         return $this;
     }
     
-    public function EMERGENCY($message, array $context = array())
+    public function emergency($message, array $context = array())
     {
         $this->log(LogLevel::EMERGENCY, $message, $context);
         return $this;
     }
     
-    public function WARNING($message, array $context = array())
+    public function warning($message, array $context = array())
     {
         $this->log(LogLevel::WARNING, $message, $context);
         return $this;
     }
     
-    public function CRITICAL($message, array $context = array())
+    public function critical($message, array $context = array())
     {
         $this->log(LogLevel::CRITICAL, $message, $context);
         return $this;
     }
     
-    public function DEBUG($message, array $context = array())
+    public function debug($message, array $context = array())
     {
         $this->log(LogLevel::DEBUG, $message, $context);
         return $this;
     }
     
-    public function NOTICE($message, array $context = array())
+    public function notice($message, array $context = array())
     {
         $this->log(LogLevel::NOTICE, $message, $context);
         return $this;
