@@ -12,9 +12,11 @@ Inherently cached message record using PHP object attribute.
 ```php
 $logger = LoggerOne\Logger::getInstance();  // Strongly recommend
 
-$message = str_repeat("test log message", 50);
+$message = 'test log message {placeholder1} {placeholder2}';
 
-$logger->info($message);
+$replacements = ['placeholder1' => 'Foo', 'placeholder2' => 'bar'];
+
+$logger->info($message, $replacements);
 ```
 ### Specific Handler & Formatter
 
