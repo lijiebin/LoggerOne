@@ -106,5 +106,5 @@ $logger->info('some test log message');
 #### The way just like Handler extending
 
 ## 注意/Notice
-- If you have not using composer, should remember load all dependency class file manually.
+- If you have not using composer, should remember load all dependency class in your way.
 - Try to keep your handler write in batches for performace
