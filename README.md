@@ -7,16 +7,18 @@ Inherently cached message record using PHP object attribute.
 ## 安装&使用/Istall&Usage
 
 ### Invoke by default mode 
-#### Will using `FileHandler` create a log file named for `%Y-%m-%d` and appendix `.log` at `LoggerOne` root folder, ervery message as line with the original
-```
-$logger = new LoggerOne\Logger();
+#### Will using `FileHandler` create a log file named for `%Y%m%d` and appendix `.log` at `LoggerOne` root folder, ervery message as line with the original
+
+```php
+$logger = LoggerOne\Logger::getInstance();  // Strongly recommend
 
 $message = str_repeat("test log message", 50);
 
 $logger->info($message);
 ```
 ### Specific Handler & Formatter
-```
+
+```php
 $logger = new LoggerOne\Logger();
 
 $handler = new LoggerOne\Handler\FooHandler();
@@ -27,9 +29,11 @@ $logger->setHandler($handler)->setFormatter($formatter);
 
 $logger->info('some test log message');
 ```
+
 ### Flush log message immediately
 #### Once calling `flush` method will write all previous message by handler
-```
+
+```php
 ...
 
 $logger->info('some test log message')->flush();
@@ -37,11 +41,13 @@ $logger->info('some test log message')->flush();
 ...
 
 ```
+
 ## 定制&扩展/Customization&Extending
 
 ### Handler Extension Simple
 #### Put your own `MySQLHandler.php` in `LoggerOne\Handler` folder 
-```
+
+```php
 <?php
 namespace LoggerOne\Handler;
 
@@ -68,8 +74,10 @@ class MySQLHandler implements Handler
     }
 }
 ```
+
 #### Use `MySQLHandler.php`
-```
+
+```php
 $logger = new LoggerOne\Logger();
 
 $handler = new LoggerOne\Handler\MysqlHandler($yourLogTableName, $yourDbHandler);
