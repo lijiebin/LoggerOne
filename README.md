@@ -29,9 +29,11 @@ $logger->setHandler($handler)->setFormatter($formatter);
 
 $logger->info('some test log message');
 ```
+
 ### Flush log message immediately
 #### Once calling `flush` method will write all previous message by handler
-```
+
+```php
 ...
 
 $logger->info('some test log message')->flush();
@@ -39,11 +41,13 @@ $logger->info('some test log message')->flush();
 ...
 
 ```
+
 ## 定制&扩展/Customization&Extending
 
 ### Handler Extension Simple
 #### Put your own `MySQLHandler.php` in `LoggerOne\Handler` folder 
-```
+
+```php
 <?php
 namespace LoggerOne\Handler;
 
@@ -70,8 +74,10 @@ class MySQLHandler implements Handler
     }
 }
 ```
+
 #### Use `MySQLHandler.php`
-```
+
+```php
 $logger = new LoggerOne\Logger();
 
 $handler = new LoggerOne\Handler\MysqlHandler($yourLogTableName, $yourDbHandler);
