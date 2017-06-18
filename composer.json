@@ -1,6 +1,17 @@
 {
     "name": "logger-one/logger-one",
-    "require": {"psr/log": "^1.0.1"},
+     "keywords": [
+        "php",
+        "log",
+        "logger",
+        "library",
+        "class"
+    ],
+    "require": {
+        "php":">=5.3.0",
+        "psr/log": "^1.0.1"
+    },
+    "license": "MIT",
     "autoload": {
         "psr-4": {"LoggerOne\\": ""}
     }
