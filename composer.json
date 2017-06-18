@@ -1,4 +1,4 @@
 {
-    "name": "lijiebin/logger-one",
+    "name": "LoggerOne",
     "require": {"psr/log": "^1.0.2"}
 }
