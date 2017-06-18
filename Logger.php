@@ -135,6 +135,7 @@ class Logger extends AbstractLogger
     
     public function flush()
     {
+        if ( ! $this->_messages) return;
         $this->_handler->write($this->_messages);
         $this->_messages = [];
     }
