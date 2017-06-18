@@ -12,14 +12,27 @@ Inherently cached message record using PHP object attribute.
 ```php
 $logger = LoggerOne\Logger::getInstance();  // Strongly recommend
 
-$message = str_repeat("test log message", 50);
+$message = 'test log message {placeholder1} {placeholder2}';
+
+$replacements = ['placeholder1' => 'Foo', 'placeholder2' => 'bar'];
+
+$logger->info($message, $replacements);
+```
+#### Change `FileHandler` default path
+
+```php
+$logFile = './tmp/loggerOne.log'; // Your path where you want
+
+$handler = new LoggerOne\Handler\FileHandler($logFile);
+
+$logger->setHandler($handler);
 
 $logger->info($message);
 ```
+
 ### Specific Handler & Formatter
 
 ```php
-$logger = new LoggerOne\Logger();
 
 $handler = new LoggerOne\Handler\FooHandler();
 
@@ -35,11 +48,8 @@ $logger->info('some test log message');
 
 ```php
 ...
-
 $logger->info('some test log message')->flush();
-
 ...
-
 ```
 
 ## 定制&扩展/Customization&Extending
@@ -80,7 +90,7 @@ class MySQLHandler implements Handler
 ```php
 $logger = new LoggerOne\Logger();
 
-$handler = new LoggerOne\Handler\MysqlHandler($yourLogTableName, $yourDbHandler);
+$handler = new LoggerOne\Handler\MysqlHandler($yourLogTableName, $yourDbHandle);
 
 $logger->setHandler($handler);
 
@@ -91,4 +101,5 @@ $logger->info('some test log message');
 #### The way just like Handler extending
 
 ## 注意/Notice
-If you have not using composer, should remember load all dependency class file manually.
+- If you have not using composer, should remember load all dependency class file manually.
+- Try to keep your handler write in batches for performace
