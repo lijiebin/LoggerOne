@@ -5,6 +5,11 @@ One Efficient & Light & Simple high performance PHP log implemention of PSR-3
 Inherently cached message record using PHP object attribute.
 
 ## 安装&使用/Istall&Usage
+### Install
+
+```shell
+$ composer require logger-one/logger-one
+```
 
 ### Invoke by default mode 
 #### Will using `FileHandler` create a log file named for `%Y%m%d` and appendix `.log` at `LoggerOne` root folder, ervery message as line with the original
