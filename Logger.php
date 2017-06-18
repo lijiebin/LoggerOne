@@ -18,12 +18,23 @@ class Logger extends AbstractLogger
     
     private $_formatter;
     
+    static private $_instance;
+    
     public function __construct(Handler $handler = null, $formatter = null)
     {
         $refl = new \ReflectionClass('Psr\log\LogLevel');
         $this->_levels = array_values($refl->getConstants());
         $this->_handler = $handler ? $handler : new FileHandler();
         $this->_formatter = $formatter ? $formatter : new CommonFormatter();
+    }
+    
+    static public function getInstance()
+    {
+        if ( ! self::$_instance) {
+            self::$_instance = new self;
+        }
+       
+        return self::$_instance;
     }
     
     private function _validLevel($level = 0)
@@ -120,4 +131,5 @@ class Logger extends AbstractLogger
     {
         $this->flush();
     }
+    
 }
