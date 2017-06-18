@@ -1,5 +1,5 @@
 {
-    "name": "LoggerOne",
+    "name": "LoggerOne/LoggerOne",
     "require": {"psr/log": "^1.0.1"},
     "autoload": {
         "psr-4": {"LoggerOne\\": ""}
