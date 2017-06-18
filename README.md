@@ -21,8 +21,6 @@ $logger->info($message, $replacements);
 #### Change `FileHandler` default path
 
 ```php
-$logger = LoggerOne\Logger::getInstance(); 
-
 $logFile = './tmp/loggerOne.log'; // Your path where you want
 
 $handler = new LoggerOne\Handler\FileHandler($logFile);
@@ -35,7 +33,6 @@ $logger->info($message);
 ### Specific Handler & Formatter
 
 ```php
-$logger = new LoggerOne\Logger();
 
 $handler = new LoggerOne\Handler\FooHandler();
 
