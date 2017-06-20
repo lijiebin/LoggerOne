@@ -73,9 +73,9 @@ class MySQLHandler implements Handler
     protected $table_name;
     
     
-    public function __construct(string $table_name, object $dbHandle = null)
+    public function __construct(string $tableName, object $dbHandle = null)
     {
-        $this->table_name = $table_name;
+        $this->tableName = $table_name;
         $this->db = $dbHandle;
     }
     
@@ -85,7 +85,7 @@ class MySQLHandler implements Handler
         foreach ($messages as $level => $message) {
             $batchData[] = ['level' => $level, 'message' => $message, 'created' => time()];
         }
-        $this->db->insertBatch($this->table_name, $batchData);
+        $this->db->insertBatch($this->tableName, $batchData);
     }
 }
 ```
