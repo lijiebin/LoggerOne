@@ -28,7 +28,7 @@ class Logger extends AbstractLogger
         $this->_formatter = $formatter ? $formatter : new CommonFormatter();
     }
     
-    static public function getInstance()
+    public static function getInstance()
     {
         if ( ! self::$_instance) {
             self::$_instance = new self;
