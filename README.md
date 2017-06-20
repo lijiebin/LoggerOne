@@ -39,11 +39,11 @@ $logger->info($message);
 
 ```php
 
-$handler = new LoggerOne\Handler\FooHandler();
+$fooHandler = new LoggerOne\Handler\FooHandler();
 
-$handler = new LoggerOne\Formatter\BarFormatter();
+$barFormatter = new LoggerOne\Formatter\BarFormatter();
 
-$logger->setHandler($handler)->setFormatter($formatter);
+$logger->setHandler($fooHandler)->setFormatter($barFormatter);
 
 $logger->info('some test log message');
 ```
