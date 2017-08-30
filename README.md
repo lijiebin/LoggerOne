@@ -75,7 +75,7 @@ class MySQLHandler implements Handler
     
     public function __construct(string $tableName, object $dbHandle = null)
     {
-        $this->tableName = $table_name;
+        $this->tableName = $tableName;
         $this->db = $dbHandle;
     }
     
