@@ -70,7 +70,7 @@ class MySQLHandler implements Handler
 {
     protected $db;
     
-    protected $table_name;
+    protected $tableName;
     
     
     public function __construct(string $tableName, object $dbHandle = null)
