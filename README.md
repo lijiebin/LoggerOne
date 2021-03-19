@@ -11,7 +11,7 @@ Inherently cached message record using PHP object attribute.
 $ composer require logger-one/logger-one
 ```
 
-### Invoke by default mode 
+### Using
 #### Will using `FileHandler` create a log file named for `%Y%m%d` and appendix `.log` at `LoggerOne` root folder, ervery message as line with the original
 
 ```php
