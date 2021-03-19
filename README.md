@@ -23,7 +23,7 @@ $replacements = ['placeholder1' => 'Foo', 'placeholder2' => 'bar'];
 
 $logger->info($message, $replacements);
 ```
-#### Change `FileHandler` default path
+#### Change `FileHandler` output log path
 
 ```php
 $logFile = './tmp/loggerOne.log'; // Your path where you want
