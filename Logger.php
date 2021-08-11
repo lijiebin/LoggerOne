@@ -52,7 +52,7 @@ class Logger extends AbstractLogger
     
     public function setFormatter(Formatter $formatter)
     {
-        $this->_formatter = $handler;
+        $this->_formatter = $formatter;
         return $this;
     }
     
